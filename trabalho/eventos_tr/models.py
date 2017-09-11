@@ -39,7 +39,7 @@ class EventoCientifico(Evento):
 
 class ArtigoCientifico(models.Model):
     titulo = models.CharField(max_length = 110)
-    autores = [Autor]
+    autores = models.ManyToManyField(Autor, related_name = 'Autor', null = True, blank = False)
     evento = models.ForeignKey(EventoCientifico, related_name = 'EventoCientifico', null = True, blank = False)
 
     def __str__(self):
