@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from eventos_tr.views import listaEvento
+from eventos_tr.views import get_evento_byID
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^eventos/$', listaEvento, name = 'listaEvento'),
+    url(r'^eventos/ ([0-9]{1}) /', get_evento_byID),
+
 ]
